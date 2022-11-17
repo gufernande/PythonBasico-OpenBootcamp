@@ -5,9 +5,16 @@
 {% block header-title %}{{ pelicula.titulo }}{% endblock %}
 
 {% block content %}
-<img class="detalle" src="{{ pelicula.imagen }}"
-  alt="Portada de {{ pelicula }}"><br>
-<p><b>Año: </b>{{ pelicula.fecha}}</p>
-<h4>Sinopsis</h4>
-<p>{{ pelicula.descripcion | linebreaks }}</p>
+<div class="row">
+    <div class="col-4">
+        <img class="detalle" src="{{ pelicula.imagen }}" alt="Portada de {{ pelicula }}" style="max-width:420px"><br>
+    </div>
+
+    <div class="col-8">
+        <p><b>Año: </b>{{ pelicula.fecha |date:"Y"}}</p>
+        <h4>Sinopsis</h4>
+
+        <p>{{ pelicula.descripcion | linebreaks }}</p>
+    </div>
+</div>
 {% endblock %}

@@ -5,11 +5,22 @@
 {% block header-title %}{{ director }}{% endblock %}
 
 {% block content %}
-<img class="detalle" src="{{ director.imagen }}" alt="Foto de {{ director }}" style="max-width:200px"><br>
-<p>{{ director.fecha_nacimiento}} - {{director.fecha_defuncion | default_if_none:""}}</p>
-<h4>Biografía</h4>
-<p>{{ director.biografia | linebreaks }}</p>
-<h4>Peliculas</h4>
+<div class="row">
+    <div class="col-4">
+        <img class="detalle" src="{{ director.imagen }}" alt="Foto de {{ director }}" style="max-width:420px"><br>
+
+    </div>
+
+    <div class="col-8">
+        <h4>Biografía</h4>
+        <p>{{ director.biografia | linebreaks }}</p>
+        <p>
+            Fecha Nacimiento: {{ director.fechaNacimiento}}
+        </p>
+
+    </div>
+</div>
+<h4 style="margin-top:30px">Peliculas</h4>
 <table>
     <tr>
     {% for pelicula in director.pelicula_set.all %}
